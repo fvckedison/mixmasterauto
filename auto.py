@@ -41,7 +41,7 @@ def press_f4():
             pyautogui.keyUp('f4')
             pyautogui.moveTo(press[0], press[1],0.1)
             pyautogui.click(clicks=1, interval=0.5, button='left') 
-            time.sleep(10)
+            time.sleep(100)
 
 
 def press_f7():
@@ -52,7 +52,7 @@ def press_f7():
                     pyautogui.keyUp('f7')
                     pyautogui.moveTo(pet[i], pet[i+1],0.1)
                     pyautogui.click(clicks=1, interval=0.5, button='left') 
-                    time.sleep(10)
+                    time.sleep(40)
 
 
 if __name__ == "__main__":
