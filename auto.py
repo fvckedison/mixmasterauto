@@ -2,7 +2,8 @@ import pyautogui
 import time
 import keyboard
 import time
-from threading import Timer
+import threading
+import time
 press=[0,0]
 pet=[0,0,0,0,0,0]
 
@@ -20,38 +21,52 @@ def get_position():
     elif (keyboard.is_pressed(']')):
         pet[4]=pyautogui.position()[0]
         pet[5]=pyautogui.position()[1]
-
+    
 def press_f2():
-    pyautogui.keyDown('f2')
-    pyautogui.keyUp('f2')
-    pyautogui.moveTo(press[0], press[1],0.1)
-    pyautogui.click(clicks=1, interval=0.5, button='left')
-    time.sleep(5)
+    
+    while True:
+        print(press)
+        if(press[0]!=0 or press[1]!=0):
+            pyautogui.keyDown('f2')
+            pyautogui.keyUp('f2')
+            pyautogui.moveTo(press[0], press[1],0.1)
+            pyautogui.click(clicks=1, interval=0.5, button='left')
+            time.sleep(5)
 
 def press_f4():
-    pyautogui.keyDown('f4')
-    pyautogui.keyUp('f4')
-    pyautogui.moveTo(press[0], press[1],0.1)
-    pyautogui.click(clicks=1, interval=0.5, button='left') 
-    time.sleep(5)
+    while True:
+        print(press)
+        if(press[0]!=0 or press[1]!=0):
+            pyautogui.keyDown('f4')
+            pyautogui.keyUp('f4')
+            pyautogui.moveTo(press[0], press[1],0.1)
+            pyautogui.click(clicks=1, interval=0.5, button='left') 
+            time.sleep(10)
+
 
 def press_f7():
-    for i in range(0,5,2):
-        pyautogui.keyDown('f7')
-        pyautogui.keyUp('f7')
-        pyautogui.moveTo(pet[i], pet[i+1],0.1)
-        pyautogui.click(clicks=1, interval=0.5, button='left') 
-    
+    while True:
+            if((pet[0]!=0 or pet[1]!=0) and (pet[2]!=0 or pet[3]!=0) and( pet[4]!=0 or pet[5]!=0)):
+                for i in range(0,5,2):
+                    pyautogui.keyDown('f7')
+                    pyautogui.keyUp('f7')
+                    pyautogui.moveTo(pet[i], pet[i+1],0.1)
+                    pyautogui.click(clicks=1, interval=0.5, button='left') 
+                    time.sleep(10)
 
 
-    time.sleep(5)
+if __name__ == "__main__":
+    t2 = threading.Thread(target = press_f2)
+    t2.setDaemon(True)
+    t2.start()
 
-while True:
-    get_position()
-    
-    if(press[0]!=0 or press[1]!=0):
-        press_f2()
-        press_f4()
-    if((pet[0]!=0 or pet[1]!=0) and (pet[2]!=0 or pet[3]!=0) and( pet[4]!=0 or pet[5]!=0)):
-        press_f7()
+    t4 = threading.Thread(target = press_f4)
+    t4.setDaemon(True)
+    t4.start()
 
+    t7 = threading.Thread(target = press_f7)
+    t7.setDaemon(True)
+    t7.start()
+    while True:
+        get_position()
+        pass
