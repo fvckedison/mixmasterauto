@@ -75,7 +75,7 @@ def press_f7():
                 pyautogui.keyDown('8')
                 pyautogui.keyUp('8')
                 windll.user32.BlockInput(False)
-                time.sleep(5)
+                time.sleep(40)
         else:
             print("pet")
 
