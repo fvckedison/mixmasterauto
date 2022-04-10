@@ -65,22 +65,22 @@ def heal(hp,position,heal_function):
             pyautogui.keyUp(heal_function)
             pyautogui.keyDown('8')
             pyautogui.keyUp('8')
-        else:
-            if(position==2):
-                pyautogui.keyDown('h')
-                pyautogui.keyUp('h')
-                pyautogui.moveTo(pet[0], pet[1],0.1)
-                pyautogui.click(clicks=2, interval=0.5, button='left')
-            elif(position==3):
-                pyautogui.keyDown('h')
-                pyautogui.keyUp('h')
-                pyautogui.moveTo(pet[2], pet[3],0.1)
-                pyautogui.click(clicks=2, interval=0.5, button='left')
-            elif(position==4):
-                pyautogui.keyDown('h')
-                pyautogui.keyUp('h')
-                pyautogui.moveTo(pet[4], pet[5],0.1)
-                pyautogui.click(clicks=2, interval=0.5, button='left')  
+        # else:
+        #     if(position==2):
+        #         pyautogui.keyDown('h')
+        #         pyautogui.keyUp('h')
+        #         pyautogui.moveTo(pet[0], pet[1],0.1)
+        #         pyautogui.click(clicks=2, interval=0.5, button='left')
+        #     elif(position==3):
+        #         pyautogui.keyDown('h')
+        #         pyautogui.keyUp('h')
+        #         pyautogui.moveTo(pet[2], pet[3],0.1)
+        #         pyautogui.click(clicks=2, interval=0.5, button='left')
+        #     elif(position==4):
+        #         pyautogui.keyDown('h')
+        #         pyautogui.keyUp('h')
+        #         pyautogui.moveTo(pet[4], pet[5],0.1)
+        #         pyautogui.click(clicks=2, interval=0.5, button='left')  
     elif hp==20:
         if(position==1):
             pyautogui.keyDown(position)
@@ -89,16 +89,16 @@ def heal(hp,position,heal_function):
             pyautogui.keyUp(heal_function)
             pyautogui.keyDown('8')
             pyautogui.keyUp('8')
-        else:
-            if(position==2):
-                pyautogui.moveTo(pet[0], pet[1],0.1)
-                pyautogui.click(clicks=2, interval=0.5, button='left')
-            elif(position==3):
-                pyautogui.moveTo(pet[2], pet[3],0.1)
-                pyautogui.click(clicks=2, interval=0.5, button='left')
-            elif(position==4):
-                pyautogui.moveTo(pet[4], pet[5],0.1)
-                pyautogui.click(clicks=2, interval=0.5, button='left')
+        # else:
+        #     if(position==2):
+        #         pyautogui.moveTo(pet[0], pet[1],0.1)
+        #         pyautogui.click(clicks=2, interval=0.5, button='left')
+        #     elif(position==3):
+        #         pyautogui.moveTo(pet[2], pet[3],0.1)
+        #         pyautogui.click(clicks=2, interval=0.5, button='left')
+        #     elif(position==4):
+        #         pyautogui.moveTo(pet[4], pet[5],0.1)
+        #         pyautogui.click(clicks=2, interval=0.5, button='left')
         print("30%")
     else:
         pyautogui.keyDown('8')
@@ -136,16 +136,16 @@ def limit_skill():
 
 while True:
     generate_img()
-    get_position()
-    limit_skill()
+    # get_position()
+    # limit_skill()
     img = cv2.imread('output.png')
     role = [img[22, 758],img[33, 747],img[40, 746],img[55, 749],img[65, 753]]
     pet1 = [img[22, 823],img[33, 813],img[40, 813],img[55, 814],img[65, 819]]
     pet2 = [img[22, 888],img[33, 880],img[40, 878],img[55, 880],img[65, 888]]
     pet3 = [img[22, 952],img[33, 942],img[40, 943],img[55, 943],img[65, 951]]
-    heal(calc_status(role),'1','f1')
-    heal(calc_status(pet1),'2','f1')
-    heal(calc_status(pet2),'3','f1')
-    heal(calc_status(pet3),'4','f1')
+    heal(calc_status(role),'1','f5')
+    heal(calc_status(pet1),'2','f5')
+    heal(calc_status(pet2),'3','f5')
+    heal(calc_status(pet3),'4','f5')
     
 # print(calc_status(role)) #[32, 31, 47]
