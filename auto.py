@@ -6,6 +6,8 @@ import threading
 press=[0,0,0,0]
 pet=[0,0,0,0,0,0]
 pyautogui.FAILSAFE=False
+
+    
 def get_position():
     global press 
     global pet
@@ -32,7 +34,7 @@ def press_f2():
     
     while True:
         print(pet)
-        if(press[0]!=0 and press[1]!=0 and press[2]!=0 and press[3]!=0):
+        if(pet[0]!=0 and pet[1]!=0 and pet[2]!=0 and pet[3]!=0 and pet[4]!=0 and pet[5]!=0 and press[0]!=0 and press[1]!=0 and press[2]!=0 and press[3]!=0):
             windll.user32.BlockInput(True)
             pyautogui.keyDown('f2')
             pyautogui.keyUp('f2')
@@ -47,7 +49,7 @@ def press_f2():
 def press_f4():
     while True:
         print('gg')
-        if(pet[0]!=0 and pet[1]!=0 and pet[2]!=0 and pet[3]!=0):
+        if(press[0]!=0 and press[1]!=0 and press[2]!=0 and press[3]!=0):
             pyautogui.keyDown('f4')
             pyautogui.keyUp('f4')
             pyautogui.moveTo(press[0], press[1],0.0)
@@ -63,8 +65,18 @@ def press_f4():
 def press_f7():
     while True:
         print(pet)
-        if(pet[0]!=0 and pet[1]!=0 and pet[2]!=0 and pet[3]!=0 and pet[4]!=0 and pet[5]!=0 and press[2]!=0 and press[3]!=0):
+        if(pet[0]!=0 and pet[1]!=0 and pet[2]!=0 and pet[3]!=0 and pet[4]!=0 and pet[5]!=0 and press[0]!=0 and press[1]!=0 and press[2]!=0 and press[3]!=0):
             print(pet)
+            pyautogui.keyDown('f4')
+            pyautogui.keyUp('f4')
+            pyautogui.moveTo(press[0], press[1],0.0)
+            pyautogui.click(clicks=1, interval=0.0, button='left')
+            windll.user32.BlockInput(True)
+            pyautogui.moveTo(press[2], press[3],0.0)
+            pyautogui.keyDown('8')
+            pyautogui.keyUp('8')
+            windll.user32.BlockInput(False)
+            time.sleep(25)
             for i in range(0,5,2):
                 print(i)
                 pyautogui.keyDown('8')
@@ -77,6 +89,17 @@ def press_f7():
                 pyautogui.keyUp('8')
                 windll.user32.BlockInput(False)
                 time.sleep(40)
+            for i in range(0,29,1):
+                pyautogui.keyDown('f4')
+                pyautogui.keyUp('f4')
+                pyautogui.moveTo(pet[0], pet[1],0.0)
+                pyautogui.click(clicks=1, interval=0.0, button='left')
+                windll.user32.BlockInput(True)
+                pyautogui.moveTo(press[2], press[3],0.0)
+                pyautogui.keyDown('8')
+                pyautogui.keyUp('8')
+                windll.user32.BlockInput(False)
+                time.sleep(6)
 
 
 
