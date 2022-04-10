@@ -6,7 +6,6 @@ import threading
 press=[0,0,0,0]
 pet=[0,0,0,0,0,0]
 pyautogui.FAILSAFE=False
-
     
 def get_position():
     global press 
@@ -18,15 +17,15 @@ def get_position():
         press[2]=pyautogui.position()[0]
         press[3]=pyautogui.position()[1]
     elif (keyboard.is_pressed('l')):
-        print(pyautogui.position())
+        # print(pyautogui.position())
         pet[0]=pyautogui.position()[0]
         pet[1]=pyautogui.position()[1]
     elif (keyboard.is_pressed(';')):
-        print(pyautogui.position())
+        # print(pyautogui.position())
         pet[2]=pyautogui.position()[0]
         pet[3]=pyautogui.position()[1]
     elif (keyboard.is_pressed(']')):
-        print(pyautogui.position())
+        # print(pyautogui.position())
         pet[4]=pyautogui.position()[0]
         pet[5]=pyautogui.position()[1]
     
@@ -88,7 +87,7 @@ def press_f7():
                 pyautogui.keyDown('8')
                 pyautogui.keyUp('8')
                 windll.user32.BlockInput(False)
-                time.sleep(40)
+                time.sleep(25)
             for i in range(0,29,1):
                 pyautogui.keyDown('f4')
                 pyautogui.keyUp('f4')
@@ -107,9 +106,9 @@ def press_f7():
 
 if __name__ == "__main__":
 
-    # t2 = threading.Thread(target = press_f2)
-    # t2.setDaemon(True)
-    # t2.start()
+    t2 = threading.Thread(target = press_f2)
+    t2.setDaemon(True)
+    t2.start()
 
     # t4 = threading.Thread(target = press_f4)
     # t4.setDaemon(True)
